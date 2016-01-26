@@ -14,9 +14,30 @@ public void setup()
     }
   }
 }
+public String reverse(String back)
+{
+  String empty = "";
+  for(int i = back.length()-1; i >= 0; i --)
+  {
+    empty+=back.substring(i,i+1);
+  }
+  return empty;
+}
 public boolean palindrome(String word)
 {
-  //your code here
+  String empty = "";
+  // for(int i = word.length()-1; i >= 0; i --)
+  // {
+  //   if(Character.isLetter(word.charAt(i)))
+  //   {
+  //     empty += word;
+  //   }
+  // }
+  // return empty;
+  if(empty.equals(word))
+  {
+    return true;
+  }
   return false;
 }
 
