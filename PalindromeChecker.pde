@@ -21,19 +21,26 @@ public String reverse(String back)
   {
     empty+=back.substring(i,i+1);
   }
+  println(empty);
   return empty;
+}
+public String noSymbols(String sWord)
+{
+  String nothing = "";
+  for(int i = 0; i < sWord.length(); i ++)
+  {
+    if((!sWord.substring(i,i+1).equals(" "))&&(!sWord.substring(i,i+1).equals("!"))&&(!sWord.substring(i,i+1).equals("'"))&&(!sWord.substring(i,i+1).equals(","))&&(!sWord.substring(i,i+1).equals(".")))
+    {
+      nothing += sWord.substring(i, i+1);
+    }
+  }
+  return nothing.toLowerCase();
 }
 public boolean palindrome(String word)
 {
   String empty = "";
-  // for(int i = word.length()-1; i >= 0; i --)
-  // {
-  //   if(Character.isLetter(word.charAt(i)))
-  //   {
-  //     empty += word;
-  //   }
-  // }
-  // return empty;
+  empty = reverse(word);
+  empty = noSymbols(word);
   if(empty.equals(word))
   {
     return true;
