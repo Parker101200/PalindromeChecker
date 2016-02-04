@@ -14,37 +14,35 @@ public void setup()
     }
   }
 }
-public String reverse(String back)
-{
-  String empty = "";
-  for(int i = back.length()-1; i >= 0; i --)
-  {
-    empty+=back.substring(i,i+1);
-  }
-  println(empty);
-  return empty;
-}
-public String noSymbols(String sWord)
-{
-  String nothing = "";
-  for(int i = 0; i < sWord.length(); i ++)
-  {
-    if((!sWord.substring(i,i+1).equals(" "))&&(!sWord.substring(i,i+1).equals("!"))&&(!sWord.substring(i,i+1).equals("'"))&&(!sWord.substring(i,i+1).equals(","))&&(!sWord.substring(i,i+1).equals(".")))
-    {
-      nothing += sWord.substring(i, i+1);
-    }
-  }
-  return nothing.toLowerCase();
-}
 public boolean palindrome(String word)
 {
-  String empty = "";
-  empty = reverse(word);
-  empty = noSymbols(word);
-  if(empty.equals(word))
+  String onlyWords = noSymbols(word);
+  String erase = reverse(noSymbols(word));
+  if(onlyWords.equalsIgnoreCase(erase))
   {
     return true;
   }
   return false;
 }
-
+public String reverse(String back)
+{
+  String empty = new String();
+  for(int i = back.length()-1; i >= 0; i --)
+  {
+    empty+=back.substring(i,i+1);
+  }
+  //println(empty);
+  return empty;
+}
+public String noSymbols(String str)
+{
+  String nothing = "";
+  for(int i = 0; i < str.length(); i ++)
+  {
+    if((!str.substring(i,i+1).equals(" "))&&(!str.substring(i,i+1).equals("!"))&&(!str.substring(i,i+1).equals("'"))&&(!str.substring(i,i+1).equals(","))&&(!str.substring(i,i+1).equals(".")))
+    {
+      nothing += str.substring(i, i+1);
+    }
+  }
+  return nothing;
+}
